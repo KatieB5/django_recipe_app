@@ -5,15 +5,15 @@
         <form action="" method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Sign-up!</legend>
+                <legend class="border-bottom mb-4">Login!</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group py-3">
-                <input class="btn btn-outline-primary" type="submit" value="Sign Up">
+                <input class="btn btn-outline-primary" type="submit" value="Log in">
             </div>
         </form>
         <div class="border-top pt-3">
-            <a href="{% url 'login_user' %}">Already have an account? Log in here.</a>
+            <a href="{% url 'register_user' %}">Don't have an account yet? Register here.</a>
         </div>
     </div>
 {% endblock %}
