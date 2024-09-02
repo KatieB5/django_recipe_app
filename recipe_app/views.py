@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Welcome to the recipes app!")
+    return render(request, 'recipe_app/home.html')
 
 def about(request):
-    return HttpResponse("This is a recipes app to keep track of your recipes.")
+    return render(request, 'recipe_app/about.html')
