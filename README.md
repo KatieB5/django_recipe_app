@@ -24,8 +24,9 @@ With this app, you can:
 1. Clone this repo
 2. `cd` into the project folder
 3. Activate the virtual environment
-4. Start up the server
-5. Go explore the app!
+4. Install the dependancies
+5. Start up the server
+6. Go explore the app!
 
 
 
