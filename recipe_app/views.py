@@ -1,7 +1,8 @@
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 
 from . import models
 
@@ -40,6 +41,14 @@ class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = models.Recipe
+    success_url = reverse_lazy('home')
+
+    def test_func(self):
+        recipe = self.get_object()
+        return self.request.user == recipe.author
 
 
 def about(request):
